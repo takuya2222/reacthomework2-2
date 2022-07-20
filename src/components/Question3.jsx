@@ -1,4 +1,5 @@
 import React from "react";
+import { Center } from "@chakra-ui/react";
 
 export const Question3 = (props) => {
   return (
