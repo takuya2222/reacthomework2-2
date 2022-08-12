@@ -1,8 +1,8 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 
-export const Profile = () => {
+export const Profile = (props) => {
+  const { setStep } = props;
   const birthYearRef = useRef(null);
   const birthMonthRef = useRef(null);
   const birthDayRef = useRef(null);
@@ -102,9 +102,7 @@ export const Profile = () => {
         </Box>
 
         <div>
-          <Link to="/questions">
-            <button>次へ進む</button>
-          </Link>
+          <button onClick={() => setStep(2)}>次へ進む</button>
         </div>
       </div>
     </Center>

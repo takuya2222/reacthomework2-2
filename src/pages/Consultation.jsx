@@ -1,17 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { addText } from "../features/Texts";
-import { useState } from "react";
 
-export const Consultation = () => {
-  const [text, setText] = useState("");
-
-  const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch(addText(text));
-  };
+export const Consultation = (props) => {
+  const { setStep } = props;
+  const [consultation, setConsultation] = useState();
+  const onChangeText = (e) => setConsultation(e.target.value);
+  const onClickAdd = () => {};
 
   return (
     <Center h="100vh">
@@ -22,23 +16,26 @@ export const Consultation = () => {
             <Text ml={10}>ご相談内容</Text>
           </Flex>
           <textarea
-            onChange={(e) => setText(e.target.value)}
             width="50%"
             name=""
             id=""
             cols="30"
             rows="10"
-          >
-          </textarea>
+            onChange={onChangeText}
+            value={consultation}
+          ></textarea>
         </Box>
 
         <div>
-          <Link to="/questions">
-            <button>前へ戻る</button>
-          </Link>
-          <Link to="/Confirmation">
-            <button onClick={() => handleClick()}>次へ進む</button>
-          </Link>
+          <button onClick={() => setStep(2)}>前へ戻る</button>
+          <button
+            onClick={() => {
+              setStep(4);
+              onChangeText();
+            }}
+          >
+            次へ進む
+          </button>
         </div>
       </Box>
     </Center>

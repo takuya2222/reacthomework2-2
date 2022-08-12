@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 
 import { Question1 } from "../components/Question1";
 import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 
-export const Questions = () => {
+export const Questions = (props) => {
+  const { setStep } = props;
   const [isHospitalQuestion, setIsHospitalQuestion] = useState(false);
   const [isOperationQuestion, setIsOperationQuestion] = useState(false);
 
@@ -29,12 +29,8 @@ export const Questions = () => {
         </Box>
 
         <div>
-          <Link to="/">
-            <button>前へ戻る</button>
-          </Link>
-          <Link to="/consultation">
-            <button>次へ進む</button>
-          </Link>
+          <button onClick={() => setStep(1)}>前へ戻る</button>
+          <button onClick={() => setStep(3)}>次へ進む</button>
         </div>
       </Box>
     </Center>
