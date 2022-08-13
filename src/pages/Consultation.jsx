@@ -3,8 +3,8 @@ import { Box, Center, Flex, Text } from "@chakra-ui/react";
 
 export const Consultation = (props) => {
   const { setStep } = props;
-  const [consultation, setConsultation] = useState();
-  const onChangeText = (e) => setConsultation(e.target.value);
+  const [consultationText, setConsultationText] = useState();
+  const onChangeText = (e) => setConsultationText(e.target.value);
   const onClickAdd = () => {};
 
   return (
@@ -22,7 +22,7 @@ export const Consultation = (props) => {
             cols="30"
             rows="10"
             onChange={onChangeText}
-            value={consultation}
+            value={consultationText}
           ></textarea>
         </Box>
 

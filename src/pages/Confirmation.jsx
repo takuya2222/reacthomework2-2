@@ -2,7 +2,7 @@ import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const Confirmation = (props) => {
-  const { setStep, setConsultation } = props;
+  const { setStep, setConsultationText } = props;
   return (
     <Center>
       <Box>
@@ -21,7 +21,7 @@ export const Confirmation = (props) => {
             <p>
               -過去5年院内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をしたことがありますか？-
             </p>
-            {setConsultation}
+            {setConsultationText}
           </div>
         </Box>
         <Box>
