@@ -21,7 +21,7 @@ export const Confirmation = (props) => {
             <p>
               -過去5年院内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をしたことがありますか？-
             </p>
-            {setConsultationText}
+            <p>{setConsultationText}</p>
           </div>
         </Box>
         <Box>

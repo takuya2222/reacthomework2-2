@@ -31,7 +31,7 @@ export const Consultation = (props) => {
           <button
             onClick={() => {
               setStep(4);
-              onChangeText();
+              onClickAdd();
             }}
           >
             次へ進む
