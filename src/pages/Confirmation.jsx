@@ -2,7 +2,17 @@ import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React from "react";
 
 export const Confirmation = (props) => {
-  const { setStep, setConsultationText } = props;
+  const {
+    setStep,
+    chooseGender,
+    birthYear,
+    birthMonth,
+    birthDay,
+    chooseYesNoQ1,
+    chooseYesNoQ2,
+    chooseYesNoQ3,
+    consultationText,
+  } = props;
   return (
     <Center>
       <Box>
@@ -13,15 +23,25 @@ export const Confirmation = (props) => {
           </Flex>
           <div>
             <p>-性別-</p>
+            <p>{chooseGender}</p>
             <p>-生年月日-</p>
+            <p>
+              {birthYear}
+              {birthMonth}
+              {birthDay}
+            </p>
             <p>-現在、生命保険に加入されていますか？-</p>
+            <p>{chooseYesNoQ1}</p>
             <p>
               -現在、入院中ですか。または、最近3ヶ月以内に医師の診断・検査の結果、入院・手術をすすめられたことはありますか？-
             </p>
+            <p>{chooseYesNoQ2}</p>
             <p>
               -過去5年院内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をしたことがありますか？-
             </p>
-            <p>{setConsultationText}</p>
+            <p>{chooseYesNoQ3}</p>
+            <p>-ご相談内容-</p>
+            <p>{consultationText}</p>
           </div>
         </Box>
         <Box>

@@ -1,11 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 
 export const Consultation = (props) => {
-  const { setStep } = props;
-  const [consultationText, setConsultationText] = useState();
-  const onChangeText = (e) => setConsultationText(e.target.value);
-  const onClickAdd = () => {};
+  const { setStep, consultationText, setConsultationText } = props;
+
+  const onChangeText = (e) => {
+    setConsultationText(e.target.value);
+  };
 
   return (
     <Center h="100vh">
@@ -31,7 +32,6 @@ export const Consultation = (props) => {
           <button
             onClick={() => {
               setStep(4);
-              onClickAdd();
             }}
           >
             次へ進む

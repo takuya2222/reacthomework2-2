@@ -6,7 +6,8 @@ import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 
 export const Questions = (props) => {
-  const { setStep } = props;
+  const { setStep, setChooseYesNoQ1, setChooseYesNoQ2, setChooseYesNoQ3 } =
+    props;
   const [isHospitalQuestion, setIsHospitalQuestion] = useState(false);
   const [isOperationQuestion, setIsOperationQuestion] = useState(false);
 
@@ -20,11 +21,19 @@ export const Questions = (props) => {
           </Flex>
 
           <div>
-            <Question1 setIsHospitalQuestion={setIsHospitalQuestion} />
+            <Question1
+              setIsHospitalQuestion={setIsHospitalQuestion}
+              setChooseYesNoQ1={setChooseYesNoQ1}
+            />
             {isHospitalQuestion && (
-              <Question2 setIsOperationQuestion={setIsOperationQuestion} />
+              <Question2
+                setIsOperationQuestion={setIsOperationQuestion}
+                setChooseYesNoQ2={setChooseYesNoQ2}
+              />
             )}
-            {isOperationQuestion && <Question3 />}
+            {isOperationQuestion && (
+              <Question3 setChooseYesNoQ3={setChooseYesNoQ3} />
+            )}
           </div>
         </Box>
 

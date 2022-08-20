@@ -2,7 +2,7 @@ import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React, { useEffect, useRef, useState } from "react";
 
 export const Profile = (props) => {
-  const { setStep } = props;
+  const { setStep, setChooseGender } = props;
   const birthYearRef = useRef(null);
   const birthMonthRef = useRef(null);
   const birthDayRef = useRef(null);
@@ -69,10 +69,14 @@ export const Profile = (props) => {
             <Text ml={10}>お客様の情報を入力してください</Text>
           </Flex>
           <p>性別</p>
-          <input type="radio" name="sex" />
-          <label htmlFor="">男性</label>
-          <input type="radio" name="sex" />
-          <label htmlFor="">女性</label>
+          <label htmlFor="">
+            <input type="radio" name="sex" onChange={setChooseGender("男性")} />
+            男性
+          </label>
+          <label htmlFor="">
+            <input type="radio" name="sex" onChange={setChooseGender("女性")} />
+            女性
+          </label>
 
           <p>生年月日</p>
           <label>
