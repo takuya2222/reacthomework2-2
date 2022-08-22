@@ -1,15 +1,15 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 
 export const Profile = (props) => {
-  const { setStep, setChooseGender } = props;
+  const { setStep, setChooseGender, setBirth, handleChange } = props;
   const birthYearRef = useRef(null);
   const birthMonthRef = useRef(null);
   const birthDayRef = useRef(null);
 
-  const [birthYear, setBirthYear] = useState();
-  const [birthMonth, setBirthMonth] = useState();
-  const [birthDay, setBirthDay] = useState();
+  // const [birthYear, setBirthYear] = useState();
+  // const [birthMonth, setBirthMonth] = useState();
+  // const [birthDay, setBirthDay] = useState();
 
   const setYear = () => {
     for (let i = 1920; i <= new Date().getFullYear(); i++) {
@@ -42,17 +42,17 @@ export const Profile = (props) => {
     }
   };
 
-  const selectBirthYear = (e) => {
-    setBirthYear(e.target.value);
-  };
+  // const selectBirthYear = (e) => {
+  //   setBirthYear(e.target.value);
+  // };
 
-  const selectBirthMonth = (e) => {
-    setBirthMonth(e.target.value);
-  };
+  // const selectBirthMonth = (e) => {
+  //   setBirthMonth(e.target.value);
+  // };
 
-  const selectBirthDay = (e) => {
-    setBirthDay(e.target.value);
-  };
+  // const selectBirthDay = (e) => {
+  //   setBirthDay(e.target.value);
+  // };
 
   useEffect(() => {
     setYear();
@@ -82,24 +82,27 @@ export const Profile = (props) => {
           <label>
             <select
               ref={birthYearRef}
-              value={birthYear}
-              onChange={selectBirthYear}
+              value={setBirth}
+              onChange={handleChange}
+              name="setBirth"
             ></select>
             年
           </label>
           <label>
             <select
               ref={birthMonthRef}
-              value={birthMonth}
-              onChange={selectBirthMonth}
+              value={setBirth}
+              onChange={handleChange}
+              name="setBirth"
             ></select>
             月
           </label>
           <label>
             <select
               ref={birthDayRef}
-              value={birthDay}
-              onChange={selectBirthDay}
+              value={setBirth}
+              onChange={handleChange}
+              name="setBirth"
             ></select>
             日
           </label>

@@ -5,9 +5,7 @@ export const Confirmation = (props) => {
   const {
     setStep,
     chooseGender,
-    birthYear,
-    birthMonth,
-    birthDay,
+    birth,
     chooseYesNoQ1,
     chooseYesNoQ2,
     chooseYesNoQ3,
@@ -25,11 +23,7 @@ export const Confirmation = (props) => {
             <p>-性別-</p>
             <p>{chooseGender}</p>
             <p>-生年月日-</p>
-            <p>
-              {birthYear}
-              {birthMonth}
-              {birthDay}
-            </p>
+            {/* <p>{birth}</p> */}
             <p>-現在、生命保険に加入されていますか？-</p>
             <p>{chooseYesNoQ1}</p>
             <p>

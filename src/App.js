@@ -10,6 +10,12 @@ export const App = () => {
 
   const [chooseGender, setChooseGender] = useState();
 
+  const [birth, setBirth] = useState({ year: null, month: null, day: null });
+
+  const handleChange = (event) => {
+    setBirth({ ...birth, [event.target.name]: event.target.value });
+  };
+
   const [chooseYesNoQ1, setChooseYesNoQ1] = useState();
   const [chooseYesNoQ2, setChooseYesNoQ2] = useState();
   const [chooseYesNoQ3, setChooseYesNoQ3] = useState();
@@ -19,7 +25,12 @@ export const App = () => {
   return (
     <div>
       {step === 1 && (
-        <Profile setStep={setStep} setChooseGender={setChooseGender} />
+        <Profile
+          setStep={setStep}
+          setChooseGender={setChooseGender}
+          setBirth={setBirth}
+          handleChange={handleChange}
+        />
       )}
       {step === 2 && (
         <Questions
@@ -40,6 +51,7 @@ export const App = () => {
         <Confirmation
           setStep={setStep}
           chooseGender={chooseGender}
+          birth={birth}
           chooseYesNoQ1={chooseYesNoQ1}
           chooseYesNoQ2={chooseYesNoQ2}
           chooseYesNoQ3={chooseYesNoQ3}
