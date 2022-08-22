@@ -23,7 +23,9 @@ export const Confirmation = (props) => {
             <p>-性別-</p>
             <p>{chooseGender}</p>
             <p>-生年月日-</p>
-            {/* <p>{birth}</p> */}
+            <p>
+              {birth.year}年{birth.month}月{birth.day}日
+            </p>
             <p>-現在、生命保険に加入されていますか？-</p>
             <p>{chooseYesNoQ1}</p>
             <p>

@@ -7,19 +7,11 @@ export const Profile = (props) => {
   const birthMonthRef = useRef(null);
   const birthDayRef = useRef(null);
 
-  // const [birthYear, setBirthYear] = useState();
-  // const [birthMonth, setBirthMonth] = useState();
-  // const [birthDay, setBirthDay] = useState();
-
   const setYear = () => {
     for (let i = 1920; i <= new Date().getFullYear(); i++) {
       const option = document.createElement("option");
-      const date = new Date(Date.UTC(i));
-      const jc = new Intl.DateTimeFormat("ja-JP-u-ca-japanese", {
-        year: "numeric",
-      }).format(date);
-      option.value = `${i}（${jc}）`;
-      option.text = `${i}（${jc}）`;
+      option.value = `${i}`;
+      option.text = `${i}`;
       birthYearRef.current.appendChild(option);
     }
   };
@@ -41,18 +33,6 @@ export const Profile = (props) => {
       birthDayRef.current.appendChild(option);
     }
   };
-
-  // const selectBirthYear = (e) => {
-  //   setBirthYear(e.target.value);
-  // };
-
-  // const selectBirthMonth = (e) => {
-  //   setBirthMonth(e.target.value);
-  // };
-
-  // const selectBirthDay = (e) => {
-  //   setBirthDay(e.target.value);
-  // };
 
   useEffect(() => {
     setYear();
@@ -82,27 +62,27 @@ export const Profile = (props) => {
           <label>
             <select
               ref={birthYearRef}
-              value={setBirth}
+              value={setBirth.year}
               onChange={handleChange}
-              name="setBirth"
+              name="year"
             ></select>
             年
           </label>
           <label>
             <select
               ref={birthMonthRef}
-              value={setBirth}
+              value={setBirth.month}
               onChange={handleChange}
-              name="setBirth"
+              name="month"
             ></select>
             月
           </label>
           <label>
             <select
               ref={birthDayRef}
-              value={setBirth}
+              value={setBirth.day}
               onChange={handleChange}
-              name="setBirth"
+              name="day"
             ></select>
             日
           </label>
