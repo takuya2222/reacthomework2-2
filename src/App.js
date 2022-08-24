@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 
 import { Profile } from "../src/pages/Profile";
 import { Questions } from "../src/pages/Questions";
@@ -6,11 +6,13 @@ import { Consultation } from "../src/pages/Consultation";
 import { Confirmation } from "../src/pages/Confirmation";
 
 export const App = () => {
+  // const Question1Context = createContext();
+
   const [step, setStep] = useState(1);
 
   const [chooseGender, setChooseGender] = useState();
 
-  const [birth, setBirth] = useState({ year: null, month: null, day: null });
+  const [birth, setBirth] = useState(null);
 
   const handleChange = (event) => {
     setBirth({ ...birth, [event.target.name]: event.target.value });
@@ -33,12 +35,14 @@ export const App = () => {
         />
       )}
       {step === 2 && (
+        // <Question1Context.Provider value={value}>
         <Questions
           setStep={setStep}
           setChooseYesNoQ1={setChooseYesNoQ1}
           setChooseYesNoQ2={setChooseYesNoQ2}
           setChooseYesNoQ3={setChooseYesNoQ3}
         />
+        // </Question1Context.Provider>
       )}
       {step === 3 && (
         <Consultation

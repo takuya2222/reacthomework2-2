@@ -4,10 +4,6 @@ import { Box, Center, Flex, Text } from "@chakra-ui/react";
 export const Consultation = (props) => {
   const { setStep, consultationText, setConsultationText } = props;
 
-  const onChangeText = (e) => {
-    setConsultationText(e.target.value);
-  };
-
   return (
     <Center h="100vh">
       <Box display="block">
@@ -22,7 +18,7 @@ export const Consultation = (props) => {
             id=""
             cols="30"
             rows="10"
-            onChange={onChangeText}
+            onChange={(e) => setConsultationText(e.target.value)}
             value={consultationText}
           ></textarea>
         </Box>
