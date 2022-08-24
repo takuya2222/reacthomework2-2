@@ -36,12 +36,12 @@ export const App = () => {
       )}
       {step === 2 && (
         // <Question1Context.Provider value={value}>
-        <Questions
-          setStep={setStep}
-          setChooseYesNoQ1={setChooseYesNoQ1}
-          setChooseYesNoQ2={setChooseYesNoQ2}
-          setChooseYesNoQ3={setChooseYesNoQ3}
-        />
+          <Questions
+            setStep={setStep}
+            setChooseYesNoQ1={setChooseYesNoQ1}
+            setChooseYesNoQ2={setChooseYesNoQ2}
+            setChooseYesNoQ3={setChooseYesNoQ3}
+          />
         // </Question1Context.Provider>
       )}
       {step === 3 && (

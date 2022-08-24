@@ -16,7 +16,7 @@ export const Question1 = (props) => {
           name="Q1"
           value="はい"
           onClick={displayNextQuestion}
-          onChange={() => setChooseYesNoQ1("はい")}
+          onChange={() => setChooseYesNoQ1(true)}
         />
         はい
       </label>
@@ -26,7 +26,7 @@ export const Question1 = (props) => {
           name="Q1"
           value="いいえ"
           onClick={displayNextQuestion}
-          onChange={() => !setChooseYesNoQ1("いいえ")}
+          onChange={() => setChooseYesNoQ1(false)}
         />
         いいえ
       </label>

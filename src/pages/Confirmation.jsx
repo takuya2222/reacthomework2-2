@@ -27,15 +27,15 @@ export const Confirmation = (props) => {
               {birth.year}年{birth.month}月{birth.day}日
             </p>
             <p>-現在、生命保険に加入されていますか？-</p>
-            <p>{chooseYesNoQ1}</p>
+            <p>{chooseYesNoQ1 ? "はい" : "いいえ"}</p>
             <p>
               -現在、入院中ですか。または、最近3ヶ月以内に医師の診断・検査の結果、入院・手術をすすめられたことはありますか？-
             </p>
-            <p>{chooseYesNoQ2}</p>
+            <p>{chooseYesNoQ2 ? "はい" : "いいえ"}</p>
             <p>
               -過去5年院内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をしたことがありますか？-
             </p>
-            <p>{chooseYesNoQ3}</p>
+            <p>{chooseYesNoQ3 ? "はい" : "いいえ"}</p>
             <p>-ご相談内容-</p>
             <p>{consultationText}</p>
           </div>

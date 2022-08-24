@@ -13,7 +13,7 @@ export const Question3 = (props) => {
           type="radio"
           name="Q3"
           value="はい"
-          onChange={() => setChooseYesNoQ3("はい")}
+          onChange={() => setChooseYesNoQ3(true)}
         />
         はい
       </label>
@@ -22,7 +22,7 @@ export const Question3 = (props) => {
           type="radio"
           name="Q3"
           value="いいえ"
-          onChange={() => setChooseYesNoQ3("いいえ")}
+          onChange={() => setChooseYesNoQ3(false)}
         />
         いいえ
       </label>
