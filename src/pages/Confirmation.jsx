@@ -1,14 +1,18 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React from "react";
+// import { useContext } from "react";
+// import { Question1Context } from "../App";
 
 export const Confirmation = (props) => {
+  // const count = useContext(Question1Context);
+
   const {
     setStep,
     chooseGender,
     birth,
-    chooseYesNoQ1,
-    chooseYesNoQ2,
-    chooseYesNoQ3,
+    selectedQ1,
+    selectedQ2,
+    selectedQ3,
     consultationText,
   } = props;
   return (
@@ -27,15 +31,15 @@ export const Confirmation = (props) => {
               {birth.year}年{birth.month}月{birth.day}日
             </p>
             <p>-現在、生命保険に加入されていますか？-</p>
-            <p>{chooseYesNoQ1 ? "はい" : "いいえ"}</p>
+            <p>{selectedQ1 ? "はい" : "いいえ"}</p>
             <p>
               -現在、入院中ですか。または、最近3ヶ月以内に医師の診断・検査の結果、入院・手術をすすめられたことはありますか？-
             </p>
-            <p>{chooseYesNoQ2 ? "はい" : "いいえ"}</p>
+            <p>{selectedQ2 ? "はい" : "いいえ"}</p>
             <p>
               -過去5年院内に、病気やけがで、手術をうけたことまたは継続して7日以上の入院をしたことがありますか？-
             </p>
-            <p>{chooseYesNoQ3 ? "はい" : "いいえ"}</p>
+            <p>{selectedQ3 ? "はい" : "いいえ"}</p>
             <p>-ご相談内容-</p>
             <p>{consultationText}</p>
           </div>

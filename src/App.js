@@ -6,7 +6,8 @@ import { Consultation } from "../src/pages/Consultation";
 import { Confirmation } from "../src/pages/Confirmation";
 
 export const App = () => {
-  // const Question1Context = createContext();
+  const Question1Context = createContext();
+  const [q1Context, setQ1Context] = useState("");
 
   const [step, setStep] = useState(1);
 
@@ -18,11 +19,11 @@ export const App = () => {
     setBirth({ ...birth, [event.target.name]: event.target.value });
   };
 
-  const [chooseYesNoQ1, setChooseYesNoQ1] = useState();
-  const [chooseYesNoQ2, setChooseYesNoQ2] = useState();
-  const [chooseYesNoQ3, setChooseYesNoQ3] = useState();
+  const [selectedQ1, setSelectedQ1] = useState();
+  const [selectedQ2, setSelectedQ2] = useState();
+  const [selectedQ3, setSelectedQ3] = useState();
 
-  const [consultationText, setConsultationText] = useState();
+  const [consultationText, setConsultationText] = useState("");
 
   return (
     <div>
@@ -35,14 +36,14 @@ export const App = () => {
         />
       )}
       {step === 2 && (
-        // <Question1Context.Provider value={value}>
+        <Question1Context.Provider value={q1Context}>
           <Questions
             setStep={setStep}
-            setChooseYesNoQ1={setChooseYesNoQ1}
-            setChooseYesNoQ2={setChooseYesNoQ2}
-            setChooseYesNoQ3={setChooseYesNoQ3}
+            setChooseYesNoQ1={setSelectedQ1}
+            setChooseYesNoQ2={setSelectedQ2}
+            setChooseYesNoQ3={setSelectedQ3}
           />
-        // </Question1Context.Provider>
+        </Question1Context.Provider>
       )}
       {step === 3 && (
         <Consultation
@@ -56,9 +57,9 @@ export const App = () => {
           setStep={setStep}
           chooseGender={chooseGender}
           birth={birth}
-          chooseYesNoQ1={chooseYesNoQ1}
-          chooseYesNoQ2={chooseYesNoQ2}
-          chooseYesNoQ3={chooseYesNoQ3}
+          chooseYesNoQ1={selectedQ1}
+          chooseYesNoQ2={selectedQ2}
+          chooseYesNoQ3={selectedQ3}
           consultationText={consultationText}
         />
       )}

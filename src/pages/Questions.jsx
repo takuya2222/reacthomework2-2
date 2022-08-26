@@ -6,8 +6,7 @@ import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 
 export const Questions = (props) => {
-  const { setStep, setChooseYesNoQ1, setChooseYesNoQ2, setChooseYesNoQ3 } =
-    props;
+  const { setStep, setSelectedQ1, setSelectedQ2, setSelectedQ3 } = props;
   const [isHospitalQuestion, setIsHospitalQuestion] = useState(false);
   const [isOperationQuestion, setIsOperationQuestion] = useState(false);
 
@@ -23,16 +22,16 @@ export const Questions = (props) => {
           <div>
             <Question1
               setIsHospitalQuestion={setIsHospitalQuestion}
-              setChooseYesNoQ1={setChooseYesNoQ1}
+              setChooseYesNoQ1={setSelectedQ1}
             />
             {isHospitalQuestion && (
               <Question2
                 setIsOperationQuestion={setIsOperationQuestion}
-                setChooseYesNoQ2={setChooseYesNoQ2}
+                setChooseYesNoQ2={setSelectedQ2}
               />
             )}
             {isOperationQuestion && (
-              <Question3 setChooseYesNoQ3={setChooseYesNoQ3} />
+              <Question3 setChooseYesNoQ3={setSelectedQ3} />
             )}
           </div>
         </Box>

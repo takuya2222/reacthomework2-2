@@ -1,8 +1,7 @@
 import React from "react";
-import { Center } from "@chakra-ui/react";
 
 export const Question3 = (props) => {
-  const { setChooseYesNoQ3 } = props;
+  const { setSelectedQ3 } = props;
   return (
     <div>
       <p>
@@ -13,7 +12,7 @@ export const Question3 = (props) => {
           type="radio"
           name="Q3"
           value="はい"
-          onChange={() => setChooseYesNoQ3(true)}
+          onChange={() => setSelectedQ3(true)}
         />
         はい
       </label>
@@ -22,7 +21,7 @@ export const Question3 = (props) => {
           type="radio"
           name="Q3"
           value="いいえ"
-          onChange={() => setChooseYesNoQ3(false)}
+          onChange={() => setSelectedQ3(false)}
         />
         いいえ
       </label>
