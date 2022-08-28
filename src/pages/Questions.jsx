@@ -5,8 +5,12 @@ import { Question1 } from "../components/Question1";
 import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 
+import { QuestionContext } from "../App";
+import { useContext } from "react";
+
 export const Questions = (props) => {
-  const { setStep, setSelectedQ1, setSelectedQ2, setSelectedQ3 } = props;
+  const { setStep, setSelectedQ2, setSelectedQ3 } = props;
+  const { setSelectedQ1 } = useContext(QuestionContext);
   const [isHospitalQuestion, setIsHospitalQuestion] = useState(false);
   const [isOperationQuestion, setIsOperationQuestion] = useState(false);
 
@@ -22,17 +26,15 @@ export const Questions = (props) => {
           <div>
             <Question1
               setIsHospitalQuestion={setIsHospitalQuestion}
-              setChooseYesNoQ1={setSelectedQ1}
+              setSelectedQ1={setSelectedQ1}
             />
             {isHospitalQuestion && (
               <Question2
                 setIsOperationQuestion={setIsOperationQuestion}
-                setChooseYesNoQ2={setSelectedQ2}
+                setSelectedQ2={setSelectedQ2}
               />
             )}
-            {isOperationQuestion && (
-              <Question3 setChooseYesNoQ3={setSelectedQ3} />
-            )}
+            {isOperationQuestion && <Question3 setSelectedQ3={setSelectedQ3} />}
           </div>
         </Box>
 

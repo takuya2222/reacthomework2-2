@@ -1,20 +1,20 @@
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 import React from "react";
-// import { useContext } from "react";
-// import { Question1Context } from "../App";
+import { useContext } from "react";
+import { QuestionContext } from "../App";
 
 export const Confirmation = (props) => {
-  // const count = useContext(Question1Context);
-
   const {
     setStep,
     chooseGender,
     birth,
-    selectedQ1,
     selectedQ2,
     selectedQ3,
     consultationText,
   } = props;
+
+  const { selectedQ1 } = useContext(QuestionContext);
+
   return (
     <Center>
       <Box>
