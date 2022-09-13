@@ -1,7 +1,7 @@
 import React from "react";
 
 export const Question2 = (props) => {
-  const { setIsOperationQuestion } = props;
+  const { setIsOperationQuestion, setSelectedQ2 } = props;
 
   const displayNextQuestion = () => {
     setIsOperationQuestion(true);
@@ -18,6 +18,7 @@ export const Question2 = (props) => {
           name="Q2"
           value="はい"
           onClick={displayNextQuestion}
+          onChange={() => setSelectedQ2(true)}
         />
         はい
       </label>
@@ -27,6 +28,8 @@ export const Question2 = (props) => {
           name="Q2"
           value="いいえ"
           onClick={displayNextQuestion}
+          onChange={() => setSelectedQ2(false)}
+
         />
         いいえ
       </label>

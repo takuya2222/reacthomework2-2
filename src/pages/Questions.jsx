@@ -1,12 +1,16 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { Box, Center, Flex, Text } from "@chakra-ui/react";
 
 import { Question1 } from "../components/Question1";
 import { Question2 } from "../components/Question2";
 import { Question3 } from "../components/Question3";
 
-export const Questions = () => {
+import { QuestionContext } from "../App";
+import { useContext } from "react";
+
+export const Questions = (props) => {
+  const { setStep, setSelectedQ2, setSelectedQ3 } = props;
+  const { setSelectedQ1 } = useContext(QuestionContext);
   const [isHospitalQuestion, setIsHospitalQuestion] = useState(false);
   const [isOperationQuestion, setIsOperationQuestion] = useState(false);
 
@@ -20,21 +24,23 @@ export const Questions = () => {
           </Flex>
 
           <div>
-            <Question1 setIsHospitalQuestion={setIsHospitalQuestion} />
+            <Question1
+              setIsHospitalQuestion={setIsHospitalQuestion}
+              setSelectedQ1={setSelectedQ1}
+            />
             {isHospitalQuestion && (
-              <Question2 setIsOperationQuestion={setIsOperationQuestion} />
+              <Question2
+                setIsOperationQuestion={setIsOperationQuestion}
+                setSelectedQ2={setSelectedQ2}
+              />
             )}
-            {isOperationQuestion && <Question3 />}
+            {isOperationQuestion && <Question3 setSelectedQ3={setSelectedQ3} />}
           </div>
         </Box>
 
         <div>
-          <Link to="/">
-            <button>前へ戻る</button>
-          </Link>
-          <Link to="/consultation">
-            <button>次へ進む</button>
-          </Link>
+          <button onClick={() => setStep(1)}>前へ戻る</button>
+          <button onClick={() => setStep(3)}>次へ進む</button>
         </div>
       </Box>
     </Center>
